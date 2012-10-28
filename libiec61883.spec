@@ -8,7 +8,7 @@ Source0:	http://www.kernel.org/pub/linux/libs/ieee1394/%{name}-%{version}.tar.gz
 # Source0-md5:	8af39fff74988073c3ad53fbab147da9
 URL:		http://ieee1394.wiki.kernel.org/index.php/Libraries#libiec61883
 BuildRequires:	libraw1394-devel
-BuildRequires:	pkgconfig
+BuildRequires:	pkg-config
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
