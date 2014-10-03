@@ -1,7 +1,7 @@
 Summary:	Streaming library for IEEE1394
 Name:		libiec61883
 Version:	1.2.0
-Release:	13
+Release:	14
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.kernel.org/pub/linux/libs/ieee1394/%{name}-%{version}.tar.gz
@@ -21,6 +21,7 @@ IEC 61883 protocols.
 Summary:	libiec61883 header files
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	libraw1394-devel
 
 %description devel
 libiec61883 devel package.
@@ -43,6 +44,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -60,7 +63,6 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libiec61883.so
-%{_libdir}/libiec61883.la
 %{_includedir}/libiec61883
 %{_pkgconfigdir}/libiec61883.pc
 
